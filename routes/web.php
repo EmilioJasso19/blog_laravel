@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,24 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [PagesController::class, 'home'])->name('home');
 
-Route::get('/saludos/{nombre}', function ($nombre) {
+Route::get('saludo/{nombre}', [PagesController::class, 'greeting'])->where('nombre', '[A-Za-z]+')->name('saludos');
 
-    $consolas = [
-        'Xbox',
-        'PlayStation',
-        'Wii U',
-        'Ste Ijue Pta'
-    ];
-   return view('saludos', compact('nombre', 'consolas'));
-})->where('nombre', '[A-Za-z]+')->name('saludo');
-
-Route::get('/contacto', function () {
-    return view('contacto');
-})->name('contacto');
+Route::get('contacto', [PagesController::class, 'contact'])->name('contacto');
+Route::post('contacto', [PagesController::class, 'mensajes']);
 
 Route::middleware([
     'auth:sanctum',
