@@ -5,6 +5,9 @@
 
 <h1>Contact</h1>
 <h2>Text me</h2>
+@if( session()->has('info') )
+    <h3>{{ session('info') }}</h3>
+@else
 <form method="POST" action="contacto">
     @csrf
     <label for="nombre">
@@ -27,4 +30,5 @@
 
     <input type="submit" value="Enviar">
 </form>
+@endif
 @stop

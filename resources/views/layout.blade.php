@@ -33,7 +33,7 @@
             <a class="{{ activeMenu('/') }}"
                href="{{ route('home') }}">Inicio</a>
 
-            <a class="{{ activeMenu('saludo/*') }}" }}
+            <a class="{{ activeMenu('saludo/*') }}"
                href="{{ route('saludos', 'Emilio') }}">Saludo</a>
 
             <a class="{{ activeMenu('contacto') }}"

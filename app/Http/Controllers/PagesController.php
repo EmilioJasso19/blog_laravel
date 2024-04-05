@@ -32,7 +32,9 @@ class PagesController extends Controller
 
     public function mensajes(CreateMessageRequest $request)
     {
-        return $request->all();
+        $data = $request->all();
+
+        return back()->with('info', 'Your message was send successfully');
     }
 }
 
