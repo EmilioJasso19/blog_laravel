@@ -37,7 +37,7 @@
                href="{{ route('saludos', 'Emilio') }}">Saludo</a>
 
             <a class="{{ activeMenu('contacto') }}"
-               href="{{ route('contacto') }}">Contacto</a>
+               href="{{ route('messages.create') }}">Contacto</a>
         </nav>
         @yield('contenido')
         <footer>Copyright {{ date('Y') }}</footer>

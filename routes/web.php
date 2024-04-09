@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\MessagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,10 @@ Route::get('saludo/{nombre}', [PagesController::class, 'greeting'])->where('nomb
 
 Route::get('contacto', [PagesController::class, 'contact'])->name('contacto');
 Route::post('contacto', [PagesController::class, 'mensajes']);
+
+Route::get('mensajes/create', [MessagesController::class, 'create'])->name('messages.create');
+Route::post('mensajes', [MessagesController::class, 'store'])->name('messages.store');
+Route::get('mensajes', [MessagesController::class, 'store'])->name('messages.index');
 
 Route::middleware([
     'auth:sanctum',

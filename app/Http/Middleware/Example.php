@@ -15,7 +15,7 @@ class Example
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (false) {
+        if (true) {
             return $next($request);
         }
         return \response('No puedes continuar', 404);
