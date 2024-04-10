@@ -36,8 +36,11 @@
             <a class="{{ activeMenu('saludo/*') }}"
                href="{{ route('saludos', 'Emilio') }}">Saludo</a>
 
-            <a class="{{ activeMenu('contacto') }}"
+            <a class="{{ activeMenu('mensajes/create') }}"
                href="{{ route('messages.create') }}">Contacto</a>
+
+            <a class="{{ activeMenu('mensajes') }}"
+               href="{{ route('messages.index') }}">Mensajes</a>
         </nav>
         @yield('contenido')
         <footer>Copyright {{ date('Y') }}</footer>
