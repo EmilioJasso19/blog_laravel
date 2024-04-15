@@ -20,12 +20,7 @@ class PagesController extends Controller
         return view('home');
     }
 
-    public function contact()
-    {
-        return view('contacto');
-    }
-
-    public function greeting($nombre) {
+    public function greeting($nombre = "Invitado") {
 
         $consolas = [
             'Xbox',
@@ -34,13 +29,6 @@ class PagesController extends Controller
             'Ste Ijue Pta'
         ];
         return view('saludos', compact('nombre', 'consolas'));
-    }
-
-    public function mensajes(CreateMessageRequest $request)
-    {
-        $data = $request->all();
-
-        return back()->with('info', 'Your message was send successfully');
     }
 }
 

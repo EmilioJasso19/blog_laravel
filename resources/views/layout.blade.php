@@ -37,10 +37,10 @@
                href="{{ route('saludos', 'Emilio') }}">Saludo</a>
 
             <a class="{{ activeMenu('mensajes/create') }}"
-               href="{{ route('messages.create') }}">Contacto</a>
+               href="{{ route('mensajes.create') }}">Contacto</a>
 
             <a class="{{ activeMenu('mensajes') }}"
-               href="{{ route('messages.index') }}">Mensajes</a>
+               href="{{ route('mensajes.index') }}">Mensajes</a>
         </nav>
         @yield('contenido')
         <footer>Copyright {{ date('Y') }}</footer>

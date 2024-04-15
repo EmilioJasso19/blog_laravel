@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PagesController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\MessagesController;
 
@@ -19,16 +20,9 @@ Route::get('/', [PagesController::class, 'home'])->name('home');
 
 Route::get('saludo/{nombre}', [PagesController::class, 'greeting'])->where('nombre', '[A-Za-z]+')->name('saludos');
 
-Route::get('contacto', [PagesController::class, 'contact'])->name('contacto');
-Route::post('contacto', [PagesController::class, 'mensajes']);
+Route::resource('mensajes', MessagesController::class);
 
-Route::get('mensajes/create', [MessagesController::class, 'create'])->name('messages.create');
-Route::post('mensajes', [MessagesController::class, 'store'])->name('messages.store');
-Route::get('mensajes', [MessagesController::class, 'index'])->name('messages.index');
-Route::get('mensajes/{id}', [MessagesController::class, 'show'])->name('messages.show');
-Route::get('mensajes/{id}/edit', [MessagesController::class, 'edit'])->name('messages.edit');
-Route::put('mensajes/{id}', [MessagesController::class, 'update'])->name('messages.update');
-Route::delete('mensajes/{id}', [MessagesController::class, 'destroy'])->name('messages.destroy');
+Route::get('login', ['App\Http\Middleware\Authenticate']);
 
 Route::middleware([
     'auth:sanctum',
